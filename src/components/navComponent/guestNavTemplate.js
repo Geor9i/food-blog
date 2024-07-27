@@ -1,12 +1,9 @@
 import { html } from "lit-html";
-import styles from './guestNav.module.scss';
+import styles from './nav.scss';
+console.log('styles: ', styles);
 
-export const guestNavTemplate = (dropDown) => html`
-<div class=${styles['guest-nav-container']}>
-<a class=${styles['title']} href="/">Instill Flow</a>
-<div class=${styles['link-container']}>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-</div>
+export const guestNavTemplate = () => html`
+<div class=${styles['container']}>
+    <p class=${styles['title']}>Food Blog</p>
 </div>
 `;

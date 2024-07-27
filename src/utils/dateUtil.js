@@ -1,5 +1,4 @@
 import StringUtil from "./stringUtil.js";
-import { storeSettings } from "../storeSettings.js";
 
 export default class DateUtil {
   constructor() {

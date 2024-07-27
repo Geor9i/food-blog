@@ -1,7 +1,7 @@
 import { html } from "lit-html";
-import styles from './nav.module.scss'
+import styles from './nav.scss'
 
-export const userNavTemplate = (dropDown, logoutHandler, STORE_NAME) => html`
+export const userNavTemplate = (logoutHandler) => html`
         <div class=${styles['main__title']} @click=${dropDown}>Inflow</div>
         <div id="dropdown__menu" class=${styles['dropdown__menu']}>
             <div class=${styles['dropdown__menu-account-container']}>

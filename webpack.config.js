@@ -24,7 +24,7 @@ module.exports = {
       disableDotRule: true,
     },
   },
-  watch: true,
+  // watch: true,
   module: {
     rules: [
       // Add this rule for handling CSS files

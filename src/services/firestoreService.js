@@ -10,7 +10,7 @@ import {
   deleteDoc,
   deleteField,
 } from "firebase/firestore";
-import { db } from "../constants/db.js";
+// import { db } from "../constants/db.js";
 
 export default class FirestoreService {
   constructor(app, eventBus) {

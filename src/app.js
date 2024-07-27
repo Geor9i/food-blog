@@ -16,8 +16,8 @@ const renderBody = (template) => render(template, main);
 
 const navComponent = new NavComponent(renderNav);
 
-// page(services.authService.confirmUser);
 page(navComponent.showView);
+// page(services.authService.confirmUser);
 // page("/index.html", "/");
 
 page.start();
