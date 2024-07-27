@@ -1,0 +1,14 @@
+@mixin button($bRadius: null, $border: none, $outline:none) {
+    border-radius: $bRadius;
+    outline: $outline;
+    border: $border;
+}
+
+@mixin input ($bRadius: null, $border: none, $outline: none) {
+    border-radius: $bRadius;
+    border: $border;
+    outline: $outline;
+    &:hover {
+        outline: none;
+    }
+}

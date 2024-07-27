@@ -1,0 +1,107 @@
+@import '../../../styles/partials/box';
+@import '../../../styles/partials/flex';
+@import '../../../styles/partials/effects';
+@import '../../../styles/partials/input';
+
+$calendar-padding: 0.5em;
+$body-border-radius: 13px;
+$font-size: 0.8em;
+$header-font-size: 1em;
+
+.container {
+    position: absolute;
+    @include rect(100%, 100%);
+    z-index: 1001;
+    @include grid(1fr, 20% 1fr);
+    padding: $calendar-padding;
+    border-radius: $body-border-radius;
+    background-color: rgb(245, 245, 245);
+    backdrop-filter: blur(10px);
+}
+
+.calendar-header {
+    position: relative;
+    @include flex($JC: flex-end);
+    width: 100%;
+    padding: 1em 0;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 1px solid rgba(15, 15, 15, 0.2);
+}
+
+.calendar-date {
+    @include position(absolute, 50%, $left: 50%, $x: -50%, $y: -50%);
+    font-size: $header-font-size;
+    color: rgb(24, 24, 24);
+    cursor: pointer;
+    @include transition(color);
+    &:hover {
+        color: #4400ff;
+    }
+}
+
+.arrow-container {
+    padding: 0 2em;
+    @include flex($gap: 2em);
+}
+.arrow {
+    font-size: $header-font-size;
+    color: #000;
+    cursor: pointer;
+    &:hover {
+        color: blue;
+    }
+}
+
+.container main {
+    padding: 1em;
+    @include rect(100%, 100%);
+    @include flex(column);
+}
+
+.row {
+    flex: 1 1;
+    @include rect(100%, auto);
+    @include flex();
+}
+
+.cell {
+    @include rect(100%, 100%);
+    cursor: pointer;
+    @include flex();
+    border-radius: 13px;
+    flex: 1 1;
+    padding: 0.5em;
+    font-size: $font-size;
+    @include transition(color);
+    box-shadow: none;
+    &:hover {
+        color: #00ccff;
+        box-shadow: 0 0 0 1px #e2f8ff, 0 0 50px 2px inset #fff;
+    }
+}
+
+.cell-inactive {
+    @include flex();
+    flex: 1 1;
+    border-radius: 13px;
+    padding: 0.5em;
+    font-size: $font-size;
+}
+.cell-indirect {
+    @extend .cell;
+    color: #999999;
+}
+
+.today {
+    color: rgb(0, 183, 255);
+    text-shadow: 0 0 2px rgb(255, 220, 48);
+    box-shadow: 0 0 10px inset #b5faff73;
+}
+
+.calendar-backdrop {
+    @include rect(100%, 100%);
+    @include position(absolute, $all: 0);
+    backdrop-filter: blur(0.5px);
+    z-index: 1000;
+  }
+  

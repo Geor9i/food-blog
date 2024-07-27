@@ -1,0 +1,57 @@
+@import "effects";
+
+@mixin rect($width: auto, $heigth: auto, $maxWidth: none, $maxHeight: none, $bRadius: null, $cube: false) {
+  width: $width;
+  @if $cube == true {
+    aspect-ratio: 1;
+  }@else {
+    height: $heigth;
+  }
+  max-width: $maxWidth;
+  max-height: $maxHeight;
+  border-radius: $bRadius;
+}
+
+@mixin box($size: 100px, $bRadius: 13px, $body-color: black) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $size;
+    border-radius: $bRadius;
+    background-color: $body-color;
+    aspect-ratio: 1;
+    transition: background-color $hover-setting;
+    &:hover {
+        background-color: lighten($body-color, 60%);
+        @include transition(background-color)
+      }
+}
+
+@mixin position($position: relative, $top: null, $right: null, $bottom: null, $left: null, $all: null, $x: null, $y: null) {
+  position: $position;
+  @if $all != null {
+    inset: $all;
+  }@else {
+    @if $top != null {
+      top: $top;
+    }
+    @if $right != null {
+      right: $right;
+    }
+    @if $bottom != null {
+      bottom: $bottom;
+    }
+    @if $left != null {
+      left: $left;
+    }
+  }
+
+  @if $x != null and $y == null {
+    transform: translateX($x);
+  }@else if $y != null and $x == null{
+    transform: translateY($y);
+  } @else if $y != null and $x != null {
+    transform: translate($x, $y);
+  }
+
+}        

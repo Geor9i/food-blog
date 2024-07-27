@@ -1,0 +1,26 @@
+@import '../../../styles/partials/box';
+@import '../../../styles/partials/flex';
+@import '../../../styles/partials/responsive';
+@import '../../../styles/partials/effects';
+
+.error-container {
+    padding: 2em;
+    position: absolute;
+    z-index: 10001;
+    @include rect(30vw, 20vh, 400px, $bRadius: 13px);
+    @include flex(column, $gap: 1em);
+    background-color: #fff;
+    box-shadow: 0 0 10px inset #ff0000;
+    border: 2px solid red;
+}
+
+.error-backdrop {
+    position: absolute;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+
+.error {
+    @include flex();
+    @include rect(100%, 3em)
+}

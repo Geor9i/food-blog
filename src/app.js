@@ -1,6 +1,7 @@
 import '../styles/site.scss';
 import page from "../node_modules/page/page.mjs";
 import { render } from "../node_modules/lit-html/lit-html.js";
+import NavComponent from './components/navComponent/nav.js';
 
 if (module.hot) {
   module.hot.accept();
@@ -9,16 +10,14 @@ if (module.hot) {
 const main = document.querySelector("main");
 const nav = document.querySelector("header");
 
-const router = {
-  navigate: page.show,
-  redirect: page.redirect,
-};
 //Render Functions
 const renderNav = (template) => render(template, nav);
 const renderBody = (template) => render(template, main);
 
+const navComponent = new NavComponent(renderNav);
+
 // page(services.authService.confirmUser);
-// page(navComponent.showView);
+page(navComponent.showView);
 // page("/index.html", "/");
 
 page.start();
